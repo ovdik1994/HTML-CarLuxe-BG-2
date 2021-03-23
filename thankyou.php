@@ -47,9 +47,15 @@ function send_the_order($post, $api)
     // header('Location: ' . (empty($post['success_page']) ? 'confirm.html' : $post['success_page']));
     include 'confirm.php';
 }
+if (!empty($_POST['whitename'])) {
+    include 'confirm.php';
+}
 
-if (!empty($_POST['phone'])) {
+elseif  (!empty($_POST['phone'])) {
     send_the_order($_REQUEST, $api);
+}
+else{
+	echo "Error";
 }
  
 ?>
